@@ -1,0 +1,51 @@
+# Default configuration for bee colony forecasting pipeline
+paths:
+  colony_tables: data/raw
+  weather: data/raw/weather_725300_20160101_20171231.parquet
+  metrics_output: outputs/metrics/metrics.csv
+  forecasts_output: outputs/artifacts/forecast_rollout.parquet
+
+features:
+  target_column: lost_percent
+  time_column: period_end
+  feature_columns:
+    - colonies
+    - maximum_colonies
+    - lost_colonies
+    - added_colonies
+    - renovated_colonies
+    - lost_percent_lag_1
+    - lost_percent_lag_2
+    - lost_percent_lag_4
+    - lost_percent_rolling_mean_2
+    - lost_percent_rolling_mean_4
+  lag_periods: [1, 2, 4]
+  rolling_windows: [2, 4]
+
+forecast:
+  horizons: [7, 14, 30, 90]
+  min_train_size: 24
+  step: 1
+  models:
+    - type: seasonal_naive
+    - type: sarima
+      order: [1, 0, 0]
+      seasonal_order: [0, 1, 1, 4]
+    - type: lightgbm
+    - type: xgboost
+    - type: random_forest
+      params:
+        n_estimators: 600
+        max_depth: 8
+    - type: catboost
+      params:
+        iterations: 700
+        depth: 6
+        learning_rate: 0.05
+    - type: svr
+      params:
+        C: 5.0
+        epsilon: 0.05
+    - type: lstm
+      lookback: 8
+      epochs: 50

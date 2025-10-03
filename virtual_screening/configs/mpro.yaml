@@ -1,0 +1,28 @@
+paths:
+  receptor: data/targets/6lu7.pdb
+  receptor_pdbqt: data/targets/6lu7_prepared.pdbqt
+  ligands: data/ligands/fragment_like_500.smi
+  workdir: virtual_screening/outputs/mpro
+
+prep:
+  ph: 7.0
+  generate_pdbqt: false
+
+ligands:
+  num_conformers: 5
+  energy_minimize: true
+  generate_pdbqt: false
+
+docking:
+  center: [-10.5, 12.5, 68.0]
+  box_size: [20, 20, 20]
+  exhaustiveness: 16
+  num_modes: 20
+  seed: 2024
+  target_column: vina_score
+  test_size: 0.2
+
+admet:
+  thresholds:
+    vina_score: -7.0
+  top_k: 20

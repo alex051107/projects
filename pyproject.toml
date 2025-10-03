@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "portfolio-projects"
+version = "0.1.0"
+description = "Replication pipelines for bee forecasting, hydrological prediction, and virtual screening"
+authors = [{name = "Data Scientist", email = "example@example.com"}]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "pandas>=2.2",
+  "numpy>=1.24",
+  "scikit-learn>=1.3",
+  "pyyaml>=6.0",
+  "requests>=2.31",
+  "plotly>=5.18",
+  "pyarrow>=12",
+]
+
+[project.optional-dependencies]
+bee = [
+  "statsmodels>=0.14",
+  "prophet>=1.1",
+  "lightgbm>=4.1",
+  "xgboost>=1.7",
+  "catboost>=1.2",
+  "torch>=2.1",
+  "dash>=2.14",
+  "dash-bootstrap-components>=1.5",
+  "meteostat>=1.6",
+]
+water = [
+  "meteostat>=1.6",
+  "lightgbm>=4.1",
+  "xgboost>=1.7",
+  "catboost>=1.2",
+  "torch>=2.1",
+]
+screening = [
+  "rdkit-pypi>=2022.9",
+  "meeko>=0.5.0",
+  "pdbfixer>=1.9",
+  "openmm>=8.0",
+  "vina>=1.2.3",
+  "xgboost>=1.7",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = [
+  "bee_forecasting*",
+  "water_level_forecasting*",
+  "virtual_screening*",
+]
+
+[tool.setuptools.package-dir]
+bee_forecasting = "bee_forecasting/src/bee_forecasting"
+water_level_forecasting = "water_level_forecasting/src/water_level_forecasting"
+virtual_screening = "virtual_screening/src/virtual_screening"
