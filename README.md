@@ -16,6 +16,10 @@ Each package exposes a `scripts/run_forecasts.py` or `scripts/run_pipeline.py` m
 YAML configuration. Refer to the project-specific README files for detailed instructions, configuration examples, and
 artifact descriptions.
 
+Cross-cutting forecasting utilities that were previously nested inside the bee project now live in the standalone
+`forecasting_core/` package so each domain workflow remains self-contained while sharing the same model zoo and rolling
+evaluation engine.
+
 ## Getting started
 
 ```bash

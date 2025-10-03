@@ -25,7 +25,8 @@ under `data/2022/2022-01-11/bee-17`. The download helper caches the files in `be
 3. **Model zoo** – Baseline (`SeasonalNaiveModel`, `ArimaModel`, `ProphetModel`), machine learning (`RandomForestModel`,
    `LightGBMModel`, `XGBoostModel`, `CatBoostModel`, `SupportVectorRegressionModel`), and deep learning (`ElmanRNNModel`,
    `LSTMModel`, `TemporalConvNetModel`) estimators share a common
-   interface and are orchestrated by `bee_forecasting.rolling.RollingForecaster`.
+   interface inside the shared `forecasting_core` package and are orchestrated by
+   `forecasting_core.RollingForecaster`.
 4. **Evaluation** – Rolling-origin forecasts for 7/14/30/90-day horizons log metrics to `metrics/metrics.csv` and
    persist diagnostic plots in `reports/`.
 5. **Dashboard** – A Plotly Dash app (see `apps/dashboard.py`) visualizes historical data, model forecasts, residuals,

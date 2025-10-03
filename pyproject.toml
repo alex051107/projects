@@ -51,11 +51,13 @@ screening = [
 where = ["."]
 include = [
   "bee_forecasting*",
+  "forecasting_core*",
   "water_level_forecasting*",
   "virtual_screening*",
 ]
 
 [tool.setuptools.package-dir]
 bee_forecasting = "bee_forecasting/src/bee_forecasting"
+forecasting_core = "forecasting_core/src/forecasting_core"
 water_level_forecasting = "water_level_forecasting/src/water_level_forecasting"
 virtual_screening = "virtual_screening/src/virtual_screening"

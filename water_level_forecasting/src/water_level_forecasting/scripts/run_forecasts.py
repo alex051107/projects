@@ -8,17 +8,18 @@ from typing import Any, Dict, List
 import pandas as pd
 import yaml
 
-from bee_forecasting.rolling import RollingForecaster
-from bee_forecasting.models.machine_learning import (
+from forecasting_core import RollingForecaster
+from forecasting_core.models import (
+    ArimaModel,
     CatBoostModel,
     LightGBMModel,
     LSTMModel,
     RandomForestModel,
+    SeasonalNaiveModel,
     SupportVectorRegressionModel,
     TemporalConvNetModel,
     XGBoostModel,
 )
-from bee_forecasting.models.statistical import ArimaModel, SeasonalNaiveModel
 
 from .. import build_feature_matrix, load_usgs_timeseries
 

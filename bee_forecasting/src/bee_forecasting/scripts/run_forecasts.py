@@ -9,18 +9,20 @@ import pandas as pd
 import yaml
 
 from .. import build_feature_matrix, load_colony_panel
-from ..rolling import RollingForecaster
-from ..models.machine_learning import (
+from forecasting_core import RollingForecaster
+from forecasting_core.models import (
+    ArimaModel,
     CatBoostModel,
     ElmanRNNModel,
     LightGBMModel,
     LSTMModel,
+    ProphetModel,
     RandomForestModel,
+    SeasonalNaiveModel,
     SupportVectorRegressionModel,
     TemporalConvNetModel,
     XGBoostModel,
 )
-from ..models.statistical import ArimaModel, ProphetModel, SeasonalNaiveModel
 
 
 MODEL_REGISTRY = {
