@@ -1,0 +1,49 @@
+paths:
+  usgs:
+    - data/raw/usgs_01646500_2015-01-01_2020-12-31.json
+  weather: data/raw/weather_724050_20150101_20201231.parquet
+  metrics_output: outputs/metrics/potomac_metrics.csv
+  forecasts_output: outputs/forecasts/potomac_forecasts.parquet
+
+features:
+  target_column: gage_height_ft
+  rename_parameters:
+    00065: gage_height_ft
+    00060: discharge_cfs
+    00045: precipitation_in
+  lag_steps: [1, 2, 7, 30]
+  rolling_windows: [7, 30]
+  feature_columns:
+    - discharge_cfs
+    - precipitation_in
+    - gage_height_ft_lag_1
+    - gage_height_ft_lag_2
+    - gage_height_ft_lag_7
+    - gage_height_ft_lag_30
+    - gage_height_ft_rolling_mean_7
+    - gage_height_ft_rolling_mean_30
+    - weather_temp_mean
+    - weather_precip_total
+
+forecast:
+  horizons: [7, 14, 30]
+  min_train_size: 365
+  step: 7
+  models:
+    - type: seasonal_naive
+      season_length: 7
+    - type: sarima
+      order: [1, 0, 1]
+      seasonal_order: [1, 1, 1, 7]
+    - type: lightgbm
+      params:
+        n_estimators: 400
+        max_depth: 6
+    - type: xgboost
+      params:
+        n_estimators: 400
+        max_depth: 5
+        subsample: 0.9
+    - type: lstm
+      lookback: 30
+      epochs: 150

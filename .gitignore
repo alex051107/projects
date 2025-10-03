@@ -1,0 +1,24 @@
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.sqlite
+
+# Virtual environments
+.env
+.venv
+venv/
+
+# Project outputs
+downloads/
+bee_forecasting/data/raw/
+bee_forecasting/outputs/
+water_level_forecasting/data/
+water_level_forecasting/outputs/
+virtual_screening/data/
+virtual_screening/outputs/
+
+# Notebooks checkpoints
+.ipynb_checkpoints/
