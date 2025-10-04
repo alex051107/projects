@@ -8,18 +8,9 @@ from typing import Any, Dict, List
 import pandas as pd
 import yaml
 
-from forecasting_core import RollingForecaster
-from forecasting_core.models import (
-    ArimaModel,
-    CatBoostModel,
-    LightGBMModel,
-    LSTMModel,
-    RandomForestModel,
-    SeasonalNaiveModel,
-    SupportVectorRegressionModel,
-    TemporalConvNetModel,
-    XGBoostModel,
-)
+from bee_forecasting.rolling import RollingForecaster
+from bee_forecasting.models.machine_learning import LightGBMModel, LSTMModel, TemporalConvNetModel, XGBoostModel
+from bee_forecasting.models.statistical import ArimaModel, SeasonalNaiveModel
 
 from .. import build_feature_matrix, load_usgs_timeseries
 
@@ -31,9 +22,6 @@ MODEL_REGISTRY = {
     ),
     "lightgbm": lambda cfg: LightGBMModel(params=cfg.get("params", {})),
     "xgboost": lambda cfg: XGBoostModel(params=cfg.get("params", {})),
-    "random_forest": lambda cfg: RandomForestModel(params=cfg.get("params", {})),
-    "catboost": lambda cfg: CatBoostModel(params=cfg.get("params", {})),
-    "svr": lambda cfg: SupportVectorRegressionModel(params=cfg.get("params", {})),
     "lstm": lambda cfg: LSTMModel(
         lookback=cfg.get("lookback", 14),
         epochs=cfg.get("epochs", 150),

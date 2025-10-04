@@ -33,19 +33,6 @@ forecast:
       seasonal_order: [0, 1, 1, 4]
     - type: lightgbm
     - type: xgboost
-    - type: random_forest
-      params:
-        n_estimators: 600
-        max_depth: 8
-    - type: catboost
-      params:
-        iterations: 700
-        depth: 6
-        learning_rate: 0.05
-    - type: svr
-      params:
-        C: 5.0
-        epsilon: 0.05
     - type: lstm
       lookback: 8
       epochs: 50

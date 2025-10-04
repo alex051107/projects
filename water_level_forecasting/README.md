@@ -17,10 +17,9 @@ covariates, and evaluates multi-horizon forecasts with interpretable diagnostics
    `(timestamp, target, features...)` dataframe. Optional weather features are merged on timestamp.
 2. **Feature engineering** – `water_level_forecasting.features.build_feature_matrix` adds lagged water level terms,
    rolling hydrometric aggregates, and engineered meteorological summaries.
-3. **Model evaluation** – The shared `RollingForecaster` from the standalone `forecasting_core` package orchestrates
-   SARIMA, ETS, random forests, gradient boosting (LightGBM/XGBoost/CatBoost), support vector regression, and LSTM/TCN
-   models across configurable forecast horizons. SHAP inspection utilities in `water_level_forecasting.explain` compute feature
-   attributions for tree-based models.
+3. **Model evaluation** – The shared `RollingForecaster` (imported from `bee_forecasting`) orchestrates SARIMA, ETS,
+   gradient boosting, and LSTM/TCN models across configurable forecast horizons. SHAP inspection utilities in
+   `water_level_forecasting.explain` compute feature attributions for tree-based models.
 4. **Reporting** – Metrics are persisted to `outputs/metrics.csv`, forecasts to `outputs/forecasts.parquet`, and
    visualization notebooks in `notebooks/` reproduce diagnostic plots.
 

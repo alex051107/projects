@@ -16,10 +16,6 @@ Each package exposes a `scripts/run_forecasts.py` or `scripts/run_pipeline.py` m
 YAML configuration. Refer to the project-specific README files for detailed instructions, configuration examples, and
 artifact descriptions.
 
-Cross-cutting forecasting utilities that were previously nested inside the bee project now live in the standalone
-`forecasting_core/` package so each domain workflow remains self-contained while sharing the same model zoo and rolling
-evaluation engine.
-
 ## Getting started
 
 ```bash
@@ -53,8 +49,8 @@ high-level milestone tracker for future enhancements.
 
 | Project | Focus | Key Data Sources | Baseline Models | ML/DL Enhancements | Major Deliverables |
 | --- | --- | --- | --- | --- | --- |
-| **P1. Bee Colony Activity Forecasting** | Time-series prediction of colony health/activity with weather covariates | Bee Informed Partnership hive metrics, NOAA/ERA5 weather archives | Naïve, ARIMA, Prophet | Random Forest, LightGBM, XGBoost, CatBoost, SVR, Elman RNN, LSTM, Temporal Convolutional Network | Metrics table, rolling forecasts (7/14/30/90 days), interactive Dash dashboard |
-| **P2. Hydrological Water Level Prediction** | Multi-horizon water level forecasts with exogenous hydrometeorological drivers | USGS NWIS station levels, precipitation & temperature feeds, upstream discharge records | Naïve, SARIMA, ETS | Random Forest, LightGBM, XGBoost, CatBoost, SVR, LSTM, Temporal ConvNet | Backtesting metrics by station/horizon, SHAP feature attribution, visual report |
+| **P1. Bee Colony Activity Forecasting** | Time-series prediction of colony health/activity with weather covariates | Bee Informed Partnership hive metrics, NOAA/ERA5 weather archives | Naïve, ARIMA, Prophet | LightGBM, XGBoost, Elman RNN, LSTM, Temporal Convolutional Network | Metrics table, rolling forecasts (7/14/30/90 days), interactive Dash dashboard |
+| **P2. Hydrological Water Level Prediction** | Multi-horizon water level forecasts with exogenous hydrometeorological drivers | USGS NWIS station levels, precipitation & temperature feeds, upstream discharge records | Naïve, SARIMA, ETS | LightGBM, XGBoost, LSTM, Temporal Fusion Transformer | Backtesting metrics by station/horizon, SHAP feature attribution, visual report |
 | **P3. "Vassar" Virtual Screening Pipeline** | Molecular docking and rescoring for a selected protein target | RCSB PDB structure, ZINC15 or DrugBank ligand library | AutoDock Vina/Smina docking | RF-Score, XGBoost-QSAR, gnina CNN, ADMET filtering | top20 hits table, docking visualizations (3D/2D), reproducible screening scripts |
 
 ## High-Level Timeline

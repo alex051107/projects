@@ -25,7 +25,6 @@ bee = [
   "prophet>=1.1",
   "lightgbm>=4.1",
   "xgboost>=1.7",
-  "catboost>=1.2",
   "torch>=2.1",
   "dash>=2.14",
   "dash-bootstrap-components>=1.5",
@@ -35,7 +34,6 @@ water = [
   "meteostat>=1.6",
   "lightgbm>=4.1",
   "xgboost>=1.7",
-  "catboost>=1.2",
   "torch>=2.1",
 ]
 screening = [
@@ -51,13 +49,11 @@ screening = [
 where = ["."]
 include = [
   "bee_forecasting*",
-  "forecasting_core*",
   "water_level_forecasting*",
   "virtual_screening*",
 ]
 
 [tool.setuptools.package-dir]
 bee_forecasting = "bee_forecasting/src/bee_forecasting"
-forecasting_core = "forecasting_core/src/forecasting_core"
 water_level_forecasting = "water_level_forecasting/src/water_level_forecasting"
 virtual_screening = "virtual_screening/src/virtual_screening"

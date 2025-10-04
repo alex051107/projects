@@ -9,20 +9,15 @@ import pandas as pd
 import yaml
 
 from .. import build_feature_matrix, load_colony_panel
-from forecasting_core import RollingForecaster
-from forecasting_core.models import (
-    ArimaModel,
-    CatBoostModel,
+from ..rolling import RollingForecaster
+from ..models.machine_learning import (
     ElmanRNNModel,
     LightGBMModel,
     LSTMModel,
-    ProphetModel,
-    RandomForestModel,
-    SeasonalNaiveModel,
-    SupportVectorRegressionModel,
     TemporalConvNetModel,
     XGBoostModel,
 )
+from ..models.statistical import ArimaModel, ProphetModel, SeasonalNaiveModel
 
 
 MODEL_REGISTRY = {
@@ -42,9 +37,6 @@ MODEL_REGISTRY = {
     ),
     "lightgbm": lambda cfg: LightGBMModel(params=cfg.get("params", {})),
     "xgboost": lambda cfg: XGBoostModel(params=cfg.get("params", {})),
-    "random_forest": lambda cfg: RandomForestModel(params=cfg.get("params", {})),
-    "catboost": lambda cfg: CatBoostModel(params=cfg.get("params", {})),
-    "svr": lambda cfg: SupportVectorRegressionModel(params=cfg.get("params", {})),
     "elman": lambda cfg: ElmanRNNModel(
         lookback=cfg.get("lookback", 8),
         epochs=cfg.get("epochs", 200),
