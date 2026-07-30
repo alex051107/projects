@@ -16,6 +16,16 @@ Each package exposes a `scripts/run_forecasts.py` or `scripts/run_pipeline.py` m
 YAML configuration. Refer to the project-specific README files for detailed instructions, configuration examples, and
 artifact descriptions.
 
+## Agent harness portfolio
+
+| Harness | Path | Control-plane focus |
+| --- | --- | --- |
+| Career Agent Harness | `career_agent_harness/` | Evidence readiness, temporal grounding, bounded scheduling, human approval, and privacy-safe observability. |
+| Scientific Evidence Harness | `scientific_evidence_harness/` | Source identity, residue-axis mapping, maturity state, measurement semantics, and claim-ceiling enforcement for scientific agents. |
+| Trajectory Event Harness | `trajectory_event_harness/` | Replica-aware sustained-event extraction with recapture, right censoring, provenance hashes, and explicit kinetic-claim boundaries. |
+
+The three projects share a common design: an agent may propose work, while a deterministic harness validates evidence, blocks unsupported actions or claims, and emits auditable artifacts.
+
 ## Getting started
 
 ```bash
