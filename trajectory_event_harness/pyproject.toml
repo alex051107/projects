@@ -1,0 +1,7 @@
+[project]
+name = "trajectory-event-harness"
+version = "0.1.0"
+description = "Replica-aware, provenance-first molecular-dynamics event extraction with recapture and censoring"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+
