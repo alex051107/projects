@@ -1,0 +1,7 @@
+[project]
+name = "scientific-evidence-harness"
+version = "0.1.0"
+description = "Fail-closed source, mapping, maturity, and claim-ceiling validation for scientific agents"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+
