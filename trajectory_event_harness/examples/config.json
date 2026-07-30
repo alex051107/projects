@@ -1,0 +1,9 @@
+{
+  "schema_version": "trajectory-event-config.v1",
+  "coordinate_definition": "synthetic ligand-pocket distance",
+  "dissociation_threshold_nm": 1.2,
+  "min_dwell_frames": 3,
+  "recapture_threshold_nm": 0.8,
+  "min_recapture_frames": 2
+}
+
