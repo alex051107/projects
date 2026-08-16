@@ -1,0 +1,10 @@
+{
+  "case_origin": "synthetic",
+  "patient_token": "SYN-DEMO-0001",
+  "order_id": "SYN-ORDER-0001",
+  "medication_code": "SYN-MED-001",
+  "dose_unit": "synthetic-unit",
+  "route": "synthetic-route",
+  "declared_intent": "demonstrate-review-workflow",
+  "reviewer_attention": true
+}
