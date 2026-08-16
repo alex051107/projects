@@ -1,65 +1,87 @@
-# Projects Portfolio Roadmap
+# Evidence-Driven Agent & Scientific ML Portfolio
 
-This repository now includes reproducible pipelines for three interdisciplinary analytics projects alongside the planning
-roadmap. Each project contains data ingestion, feature engineering, modeling, and reporting utilities implemented as
-Python packages with CLI entrypoints.
+Public, runnable engineering artifacts from four current project lines:
+EvidenceOps, CarePlan, Dynamics Atlas, and HSP90/LiGaMD. The common theme is
+not autonomous model behavior. It is the control layer around a model:
+evidence contracts, deterministic validation, durable state, human authority,
+failure recovery, and explicit limits on what a result may claim.
 
-## Project directories
+[中文导航](README.zh-CN.md)
 
-| Project | Path | Highlights |
-| --- | --- | --- |
-| Bee Colony Forecasting | `bee_forecasting/` | Download Bee Informed survey tables, engineer covariates with Meteostat weather, train ARIMA/Prophet/ML/DL models, serve a Dash dashboard. |
-| Hydrological Water Level Forecasting | `water_level_forecasting/` | Fetch USGS gauge series, merge hydrometeorological drivers, reuse the rolling evaluation engine, export metrics/backtests. |
-| "Vassar" Virtual Screening | `virtual_screening/` | Prepare receptor & ligands, orchestrate AutoDock Vina docking, train RF/XGBoost rescoring, apply ADMET filters, and generate reports. |
+## Featured projects
 
-Each package exposes a `scripts/run_forecasts.py` or `scripts/run_pipeline.py` module to execute the full workflow with a
-YAML configuration. Refer to the project-specific README files for detailed instructions, configuration examples, and
-artifact descriptions.
+| Project | Public surface | What is implemented | Evidence boundary |
+| --- | --- | --- | --- |
+| **EvidenceOps / EvidenceUp** | [Public MVP repository](https://github.com/alex051107/evidenceops-public-mvp) | Public-source registry, parsing and chunking, citation-aware retrieval, structured extraction, risk checks, a small evaluation set, failure analysis, and a static evidence console. | Public and synthetic inputs only. The static site is not evidence of a production backend, customer use, or deployment scale. |
+| **CarePlan** | [`careplan_workflow_harness/`](careplan_workflow_harness/) | Synthetic-only intake, deterministic hard stops, SQLite-backed idempotency, a typed draft boundary, fail-closed schema validation, optimistic review state, and a pharmacist-only approval gate. | A portfolio workflow, not clinical software. It accepts no real patient data, gives no medical advice, and grants no approval authority to a model. |
+| **Dynamics Atlas** | [`scientific_evidence_harness/`](scientific_evidence_harness/) | Source identity, mapping coverage, measurement semantics, maturity state, and claim-ceiling checks for scientific evidence cards. | Synthetic fixtures demonstrate governance behavior. They do not establish biological findings, cross-system generalization, or Agent effectiveness. |
+| **HSP90 / LiGaMD experimental-pKoff** | [`trajectory_event_harness/`](trajectory_event_harness/) · [LiGaMD pKoff Toolkit](https://github.com/alex051107/ligamd-pkoff-toolkit) | Replica-aware sustained-event extraction with recapture and censoring, plus a public trajectory-featurization and experimental-pKoff toolkit. | Experimental `pKoff` is an assay-derived supervised-learning label. Neither harness claims a physical dissociation rate from simulation time or a selected final scientific model. |
 
-## Getting started
+## Supporting control-plane project
 
-```bash
-uv venv --python 3.11
-uv pip install -e .[bee,water,screening]
+[`career_agent_harness/`](career_agent_harness/) applies the same design to a
+human-controlled job-search workflow: source freshness, evidence-backed
+readiness, bounded scheduling, confirmation before external action, and an
+allowlisted public snapshot. It never applies, sends, schedules, or records an
+outcome by itself.
+
+## Why these projects belong together
+
+```mermaid
+flowchart LR
+    A["Model or agent proposal"] --> B["Typed input contract"]
+    B --> C["Deterministic evidence and policy gates"]
+    C -->|"insufficient or unsafe"| D["Reject / abstain / request review"]
+    C -->|"eligible"| E["Bounded workflow step"]
+    E --> F["Human-owned decision"]
+    C --> G["Auditable receipt"]
+    E --> G
+    F --> G
 ```
 
-Run individual projects:
+Across domains, an agent may propose work. It does not silently promote a
+claim, mutate an external system, or take ownership of a human decision.
+
+## Run the focused checks
+
+All four public harnesses use Python's standard library at runtime.
 
 ```bash
-# Bee forecasting
-python -m bee_forecasting.data.download_bee_data --output-dir bee_forecasting/data/raw
-python -m bee_forecasting.data.download_weather --station-id=725300 --start 2016-01-01 --end 2017-12-31 --output-dir bee_forecasting/data/raw
-python -m bee_forecasting.scripts.run_forecasts --config bee_forecasting/configs/default.yaml
-
-# Hydrological forecasting
-python -m water_level_forecasting.data.download_usgs --site 01646500 --start 2015-01-01 --end 2020-12-31 --output water_level_forecasting/data/raw
-python -m water_level_forecasting.data.download_weather --station-id=724050 --start 2015-01-01 --end 2020-12-31 --output water_level_forecasting/data/raw
-python -m water_level_forecasting.scripts.run_forecasts --config water_level_forecasting/configs/potomac.yaml
-
-# Virtual screening
-python -m virtual_screening.data.download_target --pdb-id 6LU7 --output virtual_screening/data/targets
-python -m virtual_screening.data.download_ligands --subset fragment_like --limit 500 --output virtual_screening/data/ligands
-python -m virtual_screening.scripts.run_pipeline --config virtual_screening/configs/mpro.yaml
+python career_agent_harness/scripts/test_harness.py
+python -m unittest discover -s careplan_workflow_harness/tests -v
+python -m unittest discover -s scientific_evidence_harness/tests -v
+python -m unittest discover -s trajectory_event_harness/tests -v
 ```
 
-Use the project READMEs for dashboard usage, reporting, and interpretation guidance. The roadmap below remains as the
-high-level milestone tracker for future enhancements.
+Each project README includes a small reproducible example and its own claim
+boundary. The repository-level GitHub Actions workflow runs the same four test
+suites when a harness changes.
 
-## Overview
+## Public-release boundary
 
-| Project | Focus | Key Data Sources | Baseline Models | ML/DL Enhancements | Major Deliverables |
-| --- | --- | --- | --- | --- | --- |
-| **P1. Bee Colony Activity Forecasting** | Time-series prediction of colony health/activity with weather covariates | Bee Informed Partnership hive metrics, NOAA/ERA5 weather archives | Naïve, ARIMA, Prophet | LightGBM, XGBoost, Elman RNN, LSTM, Temporal Convolutional Network | Metrics table, rolling forecasts (7/14/30/90 days), interactive Dash dashboard |
-| **P2. Hydrological Water Level Prediction** | Multi-horizon water level forecasts with exogenous hydrometeorological drivers | USGS NWIS station levels, precipitation & temperature feeds, upstream discharge records | Naïve, SARIMA, ETS | LightGBM, XGBoost, LSTM, Temporal Fusion Transformer | Backtesting metrics by station/horizon, SHAP feature attribution, visual report |
-| **P3. "Vassar" Virtual Screening Pipeline** | Molecular docking and rescoring for a selected protein target | RCSB PDB structure, ZINC15 or DrugBank ligand library | AutoDock Vina/Smina docking | RF-Score, XGBoost-QSAR, gnina CNN, ADMET filtering | top20 hits table, docking visualizations (3D/2D), reproducible screening scripts |
+This repository intentionally excludes:
 
-## High-Level Timeline
+- resumes, portraits, personal contact records, application records, and raw
+  interview or meeting transcripts;
+- API keys, tokens, cookies, credentials, private environment files, and local
+  absolute paths;
+- real patient or customer data;
+- unpublished assay tables, raw molecular-dynamics trajectories, topology
+  files, collaborator records, and campaign-specific identity reconciliation;
+- claims of production deployment, clinical effectiveness, autonomous external
+  action, held-out Agent value, or physical `koff` estimation unless a separate
+  public receipt supports them.
 
-| Phase | Weeks | Cross-Project Milestones |
-| --- | --- | --- |
-| **Planning & Data Acquisition** | Week 1–2 | Finalize targets, acquire raw datasets, document retrieval scripts |
-| **Baseline Reconstruction** | Week 3–4 | Reproduce statistical models (ARIMA/SARIMA/ETS/Prophet, Vina docking) |
-| **Feature Engineering & Pipelines** | Week 5–6 | Standardize data schemas (time, target, group, features), implement preprocessing notebooks/scripts |
-| **ML/DL Upgrades** | Week 7–9 | Train machine learning and deep learning models (LightGBM, LSTM, TCN, TFT, gnina) |
-| **Evaluation & Visualization** | Week 10–11 | Rolling backtests, metrics.csv, dashboards, visual reports |
-| **Packaging & Documentation** | Week 12 | Final README updates, environment specs, deployment instructions |
+Examples are synthetic or use explicitly public sources. A passing test proves
+the scoped software contract exercised by that test; it is not a deployment,
+scientific-validation, or user-impact claim.
+
+## Earlier prototypes
+
+The repository also retains three earlier analytics prototypes:
+[`bee_forecasting/`](bee_forecasting/),
+[`water_level_forecasting/`](water_level_forecasting/), and
+[`virtual_screening/`](virtual_screening/). They are preserved for code-reading
+context and are not part of the current four-project evidence package. Their
+roadmap language should not be interpreted as proof that every planned model,
+data source, dashboard, or end-to-end run has been completed.

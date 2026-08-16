@@ -1,0 +1,34 @@
+name: agent-harness-tests
+
+permissions:
+  contents: read
+
+on:
+  push:
+    paths:
+      - "career_agent_harness/**"
+      - "careplan_workflow_harness/**"
+      - "scientific_evidence_harness/**"
+      - "trajectory_event_harness/**"
+      - ".github/workflows/agent-harness-tests.yml"
+  pull_request:
+    paths:
+      - "career_agent_harness/**"
+      - "careplan_workflow_harness/**"
+      - "scientific_evidence_harness/**"
+      - "trajectory_event_harness/**"
+      - ".github/workflows/agent-harness-tests.yml"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python career_agent_harness/scripts/test_harness.py
+      - run: python -m unittest discover -s careplan_workflow_harness/tests -v
+      - run: python -m unittest discover -s scientific_evidence_harness/tests -v
+      - run: python -m unittest discover -s trajectory_event_harness/tests -v

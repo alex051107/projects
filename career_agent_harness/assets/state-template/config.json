@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "ai-internship-state.v1",
+  "timezone": "Asia/Shanghai",
+  "dailyCapacityMinutes": 120,
+  "weeklyApplicationCap": 4,
+  "weeklyConnectionCap": 3,
+  "maxJobVerificationAgeDays": 7,
+  "allowColdOutreach": true,
+  "readinessEvidence": {
+    "S0": {
+      "status": "unverified",
+      "verifiedAt": null,
+      "evidence": []
+    },
+    "S1": {
+      "status": "unverified",
+      "verifiedAt": null,
+      "evidence": []
+    },
+    "S2": {
+      "status": "unverified",
+      "verifiedAt": null,
+      "evidence": []
+    },
+    "S3": {
+      "status": "unverified",
+      "verifiedAt": null,
+      "evidence": []
+    }
+  }
+}

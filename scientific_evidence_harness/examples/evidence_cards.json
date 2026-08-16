@@ -1,0 +1,58 @@
+{
+  "schema_version": "scientific-evidence-card.v1",
+  "cards": [
+    {
+      "claim_id": "claim-structural-001",
+      "source_id": "synthetic-md-001",
+      "source_type": "molecular_dynamics",
+      "source_version": "demo-1",
+      "source_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "license_status": "verified",
+      "citation_readiness": "ready",
+      "mapping": {
+        "source_axis": "chain:A/residue:1-100",
+        "target_axis": "canonical:1-100",
+        "mapping_version": "map-1",
+        "coverage": 1.0,
+        "unresolved_identifiers": []
+      },
+      "measurement": {
+        "observable": "radius_of_gyration",
+        "units": "nm",
+        "time_semantics": "simulation_time"
+      },
+      "maturity_state": "locally_reproduced",
+      "requested_inference": "structural",
+      "claim_ceiling": "structural",
+      "proposed_claim": "The synthetic trajectory samples two geometric regions.",
+      "blocked_claims": ["proves function", "experimental population"]
+    },
+    {
+      "claim_id": "claim-kinetic-002",
+      "source_id": "synthetic-generated-002",
+      "source_type": "generated_ensemble",
+      "source_version": "demo-1",
+      "source_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "license_status": "verified",
+      "citation_readiness": "ready",
+      "mapping": {
+        "source_axis": "model:1-96",
+        "target_axis": "canonical:1-100",
+        "mapping_version": "map-2",
+        "coverage": 0.94,
+        "unresolved_identifiers": ["97", "98", "99", "100"]
+      },
+      "measurement": {
+        "observable": "generated_conformation",
+        "units": "angstrom",
+        "time_semantics": "ensemble_without_time"
+      },
+      "maturity_state": "extracted_only",
+      "requested_inference": "kinetic",
+      "claim_ceiling": "structural",
+      "proposed_claim": "The generated ensemble proves function and transition kinetics.",
+      "blocked_claims": ["proves function", "transition kinetics"]
+    }
+  ]
+}
+

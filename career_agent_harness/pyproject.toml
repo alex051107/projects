@@ -1,0 +1,14 @@
+[project]
+name = "career-agent-harness"
+version = "0.1.0"
+description = "Deterministic evidence, freshness, approval, and privacy harness for a human-controlled career agent"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "Zhenpeng Liu"}]
+keywords = ["agent", "agent-harness", "human-in-the-loop", "workflow", "privacy"]
+
+[tool.pytest.ini_options]
+testpaths = ["scripts"]
+python_files = ["test_*.py"]
+

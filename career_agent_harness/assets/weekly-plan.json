@@ -1,0 +1,73 @@
+{
+  "planVersion": "demo.v1",
+  "planningTimezone": "Asia/Shanghai",
+  "target": "Demonstrate an evidence-driven career agent harness",
+  "urgentItems": [],
+  "weeks": [
+    {
+      "id": "W0",
+      "start": "2026-07-20",
+      "end": "2026-07-26",
+      "phase": "demo",
+      "headline": "Initialize the evidence contract",
+      "artifact": "A private state directory and a sanitized snapshot",
+      "market": "Monitor verified opportunities; zero applications is valid",
+      "practice": "Run one bounded interview-practice block",
+      "gate": "No external action occurs without human confirmation",
+      "gateTarget": "S0",
+      "tasks": [
+        {
+          "id": "W0-A",
+          "category": "artifact",
+          "estimateMinutes": 90,
+          "priority": "P1",
+          "condition": "unless_preempted_by_live_process",
+          "title": "Initialize the evidence contract",
+          "evidenceRequired": "State files exist and the sanitizer test passes"
+        },
+        {
+          "id": "W0-O",
+          "category": "practice",
+          "estimateMinutes": 45,
+          "priority": "P2",
+          "condition": "unless_live_process_replaces_practice",
+          "title": "Complete one bounded practice block",
+          "evidenceRequired": "A score or correction note exists"
+        }
+      ]
+    },
+    {
+      "id": "W1",
+      "start": "2026-07-27",
+      "end": "2026-08-02",
+      "phase": "demo",
+      "headline": "Exercise temporal and privacy gates",
+      "artifact": "A stale-record replay and privacy regression test",
+      "market": "Reverify stale sources before proposing action",
+      "practice": "Review one failure case",
+      "gate": "Stale or incomplete evidence fails closed",
+      "gateTarget": "S1",
+      "tasks": [
+        {
+          "id": "W1-A",
+          "category": "artifact",
+          "estimateMinutes": 90,
+          "priority": "P1",
+          "condition": "unless_preempted_by_live_process",
+          "title": "Exercise temporal and privacy gates",
+          "evidenceRequired": "Regression tests pass"
+        },
+        {
+          "id": "W1-O",
+          "category": "practice",
+          "estimateMinutes": 45,
+          "priority": "P2",
+          "condition": "unless_live_process_replaces_practice",
+          "title": "Review one failure case",
+          "evidenceRequired": "A correction note exists"
+        }
+      ]
+    }
+  ]
+}
+

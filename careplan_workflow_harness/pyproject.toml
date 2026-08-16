@@ -1,0 +1,11 @@
+[project]
+name = "careplan-workflow-harness"
+version = "0.1.0"
+description = "Synthetic-only, reviewer-gated workflow harness with durable idempotency and fail-closed draft validation"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Zhenpeng Liu"}]
+keywords = ["agent-harness", "human-in-the-loop", "workflow", "idempotency", "safety"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
