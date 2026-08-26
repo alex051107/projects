@@ -9,6 +9,15 @@ The harness is intentionally not a medical model. It demonstrates how a draft
 provider can be placed behind rules, a strict schema, durable idempotency, an
 optimistic state version, and a reviewer-only final decision.
 
+## Workflow at a glance
+
+![CarePlan workflow: a synthetic order passes hard stops, idempotent state creation, a bounded typed draft provider, schema validation, and pharmacist-only approval or rejection](workflow.svg)
+
+The dashed provider box is the full authority boundary of the model-facing
+step: it may return typed draft fields, but it cannot write an approval field
+or move the plan beyond `REVIEW_PENDING`. Red branches are explicit stopped
+states; the lower lane belongs to an authenticated pharmacist role.
+
 ## Control flow
 
 ```mermaid

@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 930" role="img" aria-labelledby="title desc">
+  <title id="title">CarePlan synthetic drafting and human review workflow</title>
+  <desc id="desc">A synthetic order passes deterministic hard stops, durable idempotent creation, a bounded draft provider, and schema validation. The model can stop only at review pending; a pharmacist role owns approval or rejection.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#263532"/>
+    </marker>
+    <marker id="arrow-warn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#B85C45"/>
+    </marker>
+    <marker id="arrow-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2A7F78"/>
+    </marker>
+    <style>
+      .sans { font-family: Arial, Helvetica, sans-serif; }
+      .eyebrow { font-size: 17px; font-weight: 700; letter-spacing: 2.6px; fill: #2A7F78; }
+      .title { font-size: 46px; font-weight: 700; fill: #182321; }
+      .subtitle { font-size: 21px; fill: #53615E; }
+      .lane { font-size: 16px; font-weight: 700; letter-spacing: 1.8px; fill: #66716E; }
+      .stage-no { font-size: 15px; font-weight: 700; letter-spacing: 1.3px; fill: #8A6625; }
+      .stage-title { font-size: 23px; font-weight: 700; fill: #182321; }
+      .body { font-size: 17px; fill: #475552; }
+      .small { font-size: 15px; fill: #5D6966; }
+      .decision { font-size: 19px; font-weight: 700; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="930" fill="#FBFBF8"/>
+  <rect x="55" y="45" width="1490" height="840" rx="24" fill="#FFFFFF" stroke="#D5D8D0" stroke-width="2"/>
+
+  <g class="sans">
+    <text x="105" y="108" class="eyebrow">CAREPLAN / SYNTHETIC WORKFLOW HARNESS</text>
+    <text x="105" y="168" class="title">The provider may draft. Only a pharmacist may decide.</text>
+    <text x="105" y="209" class="subtitle">Deterministic gates and durable state surround the model-facing step.</text>
+
+    <rect x="90" y="260" width="1420" height="390" rx="22" fill="#FBFAF6" stroke="#D6D4C9" stroke-width="2"/>
+    <text x="120" y="295" class="lane">BOUNDED AUTOMATION</text>
+
+    <g transform="translate(115 340)">
+      <rect width="205" height="190" rx="17" fill="#EDF4F1" stroke="#2A7F78" stroke-width="2"/>
+      <text x="20" y="34" class="stage-no" fill="#2A7F78">01 / INTAKE</text>
+      <text x="20" y="76" class="stage-title">Synthetic order</text>
+      <text x="20" y="111" class="body">SYN- token</text>
+      <text x="20" y="138" class="body">required fields</text>
+      <line x1="20" y1="158" x2="185" y2="158" stroke="#AFC9C2"/>
+      <text x="20" y="181" class="small">excluded from public receipt</text>
+    </g>
+
+    <g transform="translate(385 340)">
+      <path d="M 103 0 L 206 95 L 103 190 L 0 95 Z" fill="#F6F4EC" stroke="#B88732" stroke-width="2.5"/>
+      <text x="103" y="66" text-anchor="middle" class="stage-no">02 / RULE</text>
+      <text x="103" y="98" text-anchor="middle" class="stage-title">Hard stops</text>
+      <text x="103" y="128" text-anchor="middle" class="small">eligible?</text>
+    </g>
+
+    <g transform="translate(655 340)">
+      <rect width="215" height="190" rx="17" fill="#F2F3EF" stroke="#687572" stroke-width="2"/>
+      <text x="20" y="34" class="stage-no" fill="#56625F">03 / STATE</text>
+      <text x="20" y="76" class="stage-title">Create once</text>
+      <text x="20" y="111" class="body">plan + queue state</text>
+      <text x="20" y="138" class="body">+ audit event</text>
+      <line x1="20" y1="158" x2="195" y2="158" stroke="#C5CBC6"/>
+      <text x="20" y="181" class="small">SQLite transaction</text>
+    </g>
+
+    <g transform="translate(935 320)">
+      <rect width="240" height="230" rx="20" fill="#EDF4F1" stroke="#2A7F78" stroke-width="2.5" stroke-dasharray="9 7"/>
+      <text x="20" y="34" class="stage-no" fill="#2A7F78">04 / PROVIDER ZONE</text>
+      <text x="20" y="78" class="stage-title">Typed draft</text>
+      <text x="20" y="112" class="body">Fixture provider</text>
+      <text x="20" y="139" class="body">returns allowlisted</text>
+      <text x="20" y="166" class="body">fields only</text>
+      <line x1="20" y1="188" x2="220" y2="188" stroke="#AFC9C2"/>
+      <text x="20" y="214" class="small">no approval field</text>
+    </g>
+
+    <g transform="translate(1240 340)">
+      <path d="M 103 0 L 206 95 L 103 190 L 0 95 Z" fill="#F6F4EC" stroke="#B88732" stroke-width="2.5"/>
+      <text x="103" y="66" text-anchor="middle" class="stage-no">05 / SCHEMA</text>
+      <text x="103" y="98" text-anchor="middle" class="stage-title">Validate</text>
+      <text x="103" y="128" text-anchor="middle" class="small">exact contract?</text>
+    </g>
+
+    <line x1="320" y1="435" x2="374" y2="435" stroke="#263532" stroke-width="3" marker-end="url(#arrow)"/>
+    <line x1="591" y1="435" x2="644" y2="435" stroke="#263532" stroke-width="3" marker-end="url(#arrow)"/>
+    <line x1="870" y1="435" x2="924" y2="435" stroke="#263532" stroke-width="3" marker-end="url(#arrow)"/>
+    <line x1="1175" y1="435" x2="1229" y2="435" stroke="#263532" stroke-width="3" marker-end="url(#arrow)"/>
+
+    <path d="M 488 530 L 488 594 L 340 594" fill="none" stroke="#B85C45" stroke-width="3" stroke-dasharray="8 7" marker-end="url(#arrow-warn)"/>
+    <rect x="115" y="565" width="220" height="74" rx="14" fill="#FFF0EB" stroke="#B85C45" stroke-width="2"/>
+    <text x="135" y="596" class="decision" fill="#9D4936">REJECTED</text>
+    <text x="135" y="621" class="small">hard-stop receipt</text>
+
+    <path d="M 1343 530 L 1343 594 L 1198 594" fill="none" stroke="#B85C45" stroke-width="3" stroke-dasharray="8 7" marker-end="url(#arrow-warn)"/>
+    <rect x="975" y="565" width="218" height="74" rx="14" fill="#FFF0EB" stroke="#B85C45" stroke-width="2"/>
+    <text x="995" y="596" class="decision" fill="#9D4936">FAILED</text>
+    <text x="995" y="621" class="small">schema-reject receipt</text>
+
+    <rect x="90" y="690" width="1420" height="155" rx="22" fill="#EEF5F3" stroke="#2A7F78" stroke-width="2"/>
+    <text x="120" y="725" class="lane" fill="#2A7F78">HUMAN AUTHORITY</text>
+
+    <path d="M 1446 435 L 1480 435 L 1480 768 L 1188 768" fill="none" stroke="#2A7F78" stroke-width="4" marker-end="url(#arrow-teal)"/>
+    <text x="1465" y="674" text-anchor="end" class="decision" fill="#256B65">valid → REVIEW_PENDING</text>
+
+    <g transform="translate(835 730)">
+      <rect width="345" height="82" rx="16" fill="#FFFFFF" stroke="#2A7F78" stroke-width="2.5"/>
+      <text x="24" y="35" class="stage-title">Pharmacist review</text>
+      <text x="24" y="63" class="body">role + expected state version</text>
+    </g>
+
+    <line x1="835" y1="771" x2="760" y2="771" stroke="#263532" stroke-width="3" marker-end="url(#arrow)"/>
+    <line x1="1180" y1="771" x2="1255" y2="771" stroke="#263532" stroke-width="3" marker-end="url(#arrow)"/>
+
+    <g transform="translate(515 730)">
+      <rect width="235" height="82" rx="16" fill="#E8F3EE" stroke="#2A7F78" stroke-width="2"/>
+      <text x="22" y="35" class="decision" fill="#256B65">APPROVED</text>
+      <text x="22" y="62" class="small">human-owned receipt</text>
+    </g>
+    <g transform="translate(1265 730)">
+      <rect width="220" height="82" rx="16" fill="#FFF0EB" stroke="#B85C45" stroke-width="2"/>
+      <text x="22" y="35" class="decision" fill="#9D4936">REJECTED</text>
+      <text x="22" y="62" class="small">human-owned receipt</text>
+    </g>
+
+    <text x="120" y="870" class="small">Synthetic portfolio workflow only · no real patient data · no medical advice · no autonomous approval</text>
+  </g>
+</svg>
