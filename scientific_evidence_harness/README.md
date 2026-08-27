@@ -9,7 +9,7 @@ idea is that retrieval is not enough: before an agent can use a source in a
 claim, it must prove source identity, residue-axis mapping, provenance,
 measurement semantics, and the allowed inference level.
 
-![Dynamics Atlas illustrated evidence path: molecular sources and trajectories pass identity, mapping, coverage, time-semantics, maturity, and claim-scope gates before a scientist inspects the evidence bundle](readme-hero.jpg)
+![Dynamics Atlas illustrated evidence path: molecular sources and trajectories pass identity, mapping, coverage, time-semantics, maturity, and claim-scope checks before accepted, review, or rejected outcomes](readme-hero-v2.jpg)
 
 *Illustrated reading: an Agent assembles a candidate evidence card, but
 deterministic comparability gates own the route. Compatible evidence becomes
