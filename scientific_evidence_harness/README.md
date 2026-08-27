@@ -9,7 +9,14 @@ idea is that retrieval is not enough: before an agent can use a source in a
 claim, it must prove source identity, residue-axis mapping, provenance,
 measurement semantics, and the allowed inference level.
 
-## Workflow at a glance
+![Dynamics Atlas illustrated evidence path: molecular sources and trajectories pass identity, mapping, coverage, time-semantics, maturity, and claim-scope gates before a scientist inspects the evidence bundle](readme-hero.jpg)
+
+*Illustrated reading: an Agent assembles a candidate evidence card, but
+deterministic comparability gates own the route. Compatible evidence becomes
+an inspectable bundle; mismatched mapping or measurement semantics stops or
+defers the claim.*
+
+## Technical workflow
 
 ![Dynamics Atlas scientific evidence harness: an agent-proposed evidence card passes through six deterministic gates before an accepted, review-pending, or rejected verdict](workflow.svg)
 

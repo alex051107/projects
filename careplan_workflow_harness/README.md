@@ -9,7 +9,13 @@ The harness is intentionally not a medical model. It demonstrates how a draft
 provider can be placed behind rules, a strict schema, durable idempotency, an
 optimistic state version, and a reviewer-only final decision.
 
-## Workflow at a glance
+![CarePlan illustrated authority path: a synthetic order passes a hard stop, a bounded mechanism drafts inside a glass enclosure, schema checks run, and a human pharmacist controls the final lever](readme-hero.jpg)
+
+*Illustrated reading: deterministic eligibility comes first; the provider can
+create a structured draft inside its boundary; schema validation produces a
+pending review; only the human reviewer can make the final decision.*
+
+## Technical workflow
 
 ![CarePlan workflow: a synthetic order passes hard stops, idempotent state creation, a bounded typed draft provider, schema validation, and pharmacist-only approval or rejection](workflow.svg)
 
