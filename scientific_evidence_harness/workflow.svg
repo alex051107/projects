@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Dynamics Atlas scientific evidence harness</title>
+  <desc id="desc">An agent may propose a scientific claim and supporting evidence card, but a deterministic harness checks source identity, citation readiness, axis mapping, measurement semantics, maturity, and claim ceiling before returning accepted, review pending, or rejected.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#263532"/>
+    </marker>
+    <marker id="arrow-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2A7F78"/>
+    </marker>
+    <style>
+      .sans { font-family: Arial, Helvetica, sans-serif; }
+      .eyebrow { font-size: 17px; font-weight: 700; letter-spacing: 2.6px; fill: #2A7F78; }
+      .title { font-size: 46px; font-weight: 700; fill: #182321; }
+      .subtitle { font-size: 21px; fill: #53615E; }
+      .lane { font-size: 16px; font-weight: 700; letter-spacing: 1.8px; fill: #66716E; }
+      .node-title { font-size: 25px; font-weight: 700; fill: #182321; }
+      .gate-no { font-size: 15px; font-weight: 700; letter-spacing: 1.4px; fill: #8A6625; }
+      .gate-title { font-size: 22px; font-weight: 700; fill: #182321; }
+      .body { font-size: 18px; fill: #475552; }
+      .small { font-size: 16px; fill: #5D6966; }
+      .outcome { font-size: 22px; font-weight: 700; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="#FBFBF8"/>
+  <rect x="55" y="45" width="1490" height="810" rx="24" fill="#FFFFFF" stroke="#D5D8D0" stroke-width="2"/>
+
+  <g class="sans">
+    <text x="105" y="108" class="eyebrow">DYNAMICS ATLAS / SCIENTIFIC EVIDENCE HARNESS</text>
+    <text x="105" y="168" class="title">An agent may propose evidence. It cannot promote the claim.</text>
+    <text x="105" y="209" class="subtitle">Ordered, fail-closed gates decide whether two scientific objects are comparable enough for the requested inference.</text>
+
+    <text x="105" y="275" class="lane">AGENT PROPOSAL</text>
+    <text x="480" y="275" class="lane">DETERMINISTIC GOVERNANCE</text>
+    <text x="1245" y="275" class="lane">VERDICT + RECEIPT</text>
+
+    <g transform="translate(105 320)">
+      <rect width="275" height="265" rx="20" fill="#EDF4F1" stroke="#2A7F78" stroke-width="2.5"/>
+      <text x="28" y="55" class="node-title">Evidence card</text>
+      <text x="28" y="96" class="body">Proposed claim</text>
+      <text x="28" y="126" class="body">+ source identity</text>
+      <text x="28" y="156" class="body">+ mapping and units</text>
+      <line x1="28" y1="184" x2="247" y2="184" stroke="#AFC9C2"/>
+      <text x="28" y="216" class="small">LLM can retrieve</text>
+      <text x="28" y="242" class="small">and suggest a claim</text>
+    </g>
+
+    <line x1="380" y1="452" x2="455" y2="452" stroke="#263532" stroke-width="3" marker-end="url(#arrow)"/>
+
+    <g transform="translate(480 300)">
+      <rect width="610" height="410" rx="22" fill="#FCFAF4" stroke="#B88732" stroke-width="2.5"/>
+      <text x="30" y="42" class="gate-no">ORDERED GATES · STOP ON FIRST HARD FAILURE</text>
+
+      <g transform="translate(30 65)">
+        <rect width="550" height="48" rx="12" fill="#F3EBD8"/>
+        <text x="18" y="30" class="gate-no">01</text>
+        <text x="65" y="31" class="gate-title">Source identity + content hash</text>
+      </g>
+      <g transform="translate(30 120)">
+        <rect width="550" height="48" rx="12" fill="#F3EBD8"/>
+        <text x="18" y="30" class="gate-no">02</text>
+        <text x="65" y="31" class="gate-title">Licence + citation readiness</text>
+      </g>
+      <g transform="translate(30 175)">
+        <rect width="550" height="48" rx="12" fill="#F3EBD8"/>
+        <text x="18" y="30" class="gate-no">03</text>
+        <text x="65" y="31" class="gate-title">Source → target axis mapping</text>
+      </g>
+      <g transform="translate(30 230)">
+        <rect width="550" height="48" rx="12" fill="#F3EBD8"/>
+        <text x="18" y="30" class="gate-no">04</text>
+        <text x="65" y="31" class="gate-title">Coverage + unresolved identifiers</text>
+      </g>
+      <g transform="translate(30 285)">
+        <rect width="550" height="48" rx="12" fill="#F3EBD8"/>
+        <text x="18" y="30" class="gate-no">05</text>
+        <text x="65" y="31" class="gate-title">Measurement + time semantics</text>
+      </g>
+      <g transform="translate(30 340)">
+        <rect width="550" height="48" rx="12" fill="#F3EBD8"/>
+        <text x="18" y="30" class="gate-no">06</text>
+        <text x="65" y="31" class="gate-title">Maturity + requested claim ceiling</text>
+      </g>
+    </g>
+
+    <path d="M 1090 452 C 1140 452, 1140 356, 1188 356" fill="none" stroke="#263532" stroke-width="3" marker-end="url(#arrow)"/>
+
+    <g transform="translate(1215 300)">
+      <rect width="285" height="112" rx="18" fill="#E8F3EE" stroke="#2A7F78" stroke-width="2"/>
+      <circle cx="34" cy="34" r="10" fill="#2A7F78"/>
+      <text x="58" y="42" class="outcome" fill="#256B65">ACCEPTED</text>
+      <text x="26" y="78" class="body">All hard gates pass;</text>
+      <text x="26" y="102" class="small">claim stays under ceiling.</text>
+    </g>
+    <g transform="translate(1215 432)">
+      <rect width="285" height="112" rx="18" fill="#FFF7E6" stroke="#B88732" stroke-width="2"/>
+      <circle cx="34" cy="34" r="10" fill="#B88732"/>
+      <text x="58" y="42" class="outcome" fill="#866020">REVIEW PENDING</text>
+      <text x="26" y="78" class="body">No hard failure, but</text>
+      <text x="26" y="102" class="small">unresolved IDs remain.</text>
+    </g>
+    <g transform="translate(1215 564)">
+      <rect width="285" height="112" rx="18" fill="#FFF0EB" stroke="#B85C45" stroke-width="2"/>
+      <circle cx="34" cy="34" r="10" fill="#B85C45"/>
+      <text x="58" y="42" class="outcome" fill="#9D4936">REJECTED</text>
+      <text x="26" y="78" class="body">A fluent proposal cannot</text>
+      <text x="26" y="102" class="small">override a failed gate.</text>
+    </g>
+
+    <path d="M 1090 620 C 1155 620, 1150 620, 1188 620" fill="none" stroke="#B85C45" stroke-width="3" stroke-dasharray="8 7" marker-end="url(#arrow)"/>
+    <path d="M 1090 520 C 1155 520, 1150 488, 1188 488" fill="none" stroke="#B88732" stroke-width="3" stroke-dasharray="8 7" marker-end="url(#arrow)"/>
+
+    <rect x="105" y="760" width="1395" height="66" rx="14" fill="#F2F3EF"/>
+    <text x="130" y="789" class="gate-no" fill="#56625F">REVIEWABLE OUTPUT</text>
+    <text x="130" y="816" class="small">Verdict · structured reasons · warnings · evidence-card hash — deterministic and inspectable without the model</text>
+  </g>
+</svg>

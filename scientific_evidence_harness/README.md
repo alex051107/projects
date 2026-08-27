@@ -9,6 +9,15 @@ idea is that retrieval is not enough: before an agent can use a source in a
 claim, it must prove source identity, residue-axis mapping, provenance,
 measurement semantics, and the allowed inference level.
 
+## Workflow at a glance
+
+![Dynamics Atlas scientific evidence harness: an agent-proposed evidence card passes through six deterministic gates before an accepted, review-pending, or rejected verdict](workflow.svg)
+
+The model-facing side of the system may retrieve evidence and propose a claim.
+The deterministic side owns comparability and claim scope. A reviewer can read
+the verdict, reasons, warnings, and card hash without trusting or rerunning the
+model.
+
 ## Harness contract
 
 Each evidence card is evaluated through ordered, fail-closed gates:
@@ -44,4 +53,3 @@ python3 -m unittest discover -s tests -v
 
 All bundled cards are synthetic. No unpublished data or collaborator records
 are included.
-
