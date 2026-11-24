@@ -4,7 +4,7 @@ A quality-control case study using a fictional contract comparison. It shows why
 
 ![Legal Benchmark QA graphical abstract: two fictional contract versions, blind review criteria, and the distinction between wrong answers and missing source material](graphical-abstract.webp)
 
-*Figure 1. Compare the clause, check that the task can be answered from the supplied sources, then attribute the failure before recording a score.*
+*Figure 1. If both versions are present, reversing Monday and Wednesday fails the direction criterion. If Version B is missing, hold scoring, repair the packet, and repeat blind review before scoring.*
 
 [Detailed review workflow](workflow.svg) · [Editable source](workflow.dot)
 
