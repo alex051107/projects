@@ -1,0 +1,22 @@
+digraph BenchmarkQA {
+  graph [bgcolor="#F8FAFC", pad=".38", nodesep=".42", ranksep=".56", splines=polyline, labelloc=t, labeljust=l, fontname="DejaVu Sans Bold", fontsize=19, fontcolor="#14263B", label="Legal benchmark QA  /  Illustrative workflow"];
+  node [shape=box, style="rounded,filled", color="#B2C3D6", fillcolor="#FFFFFF", fontname="DejaVu Sans", fontcolor="#14263B", fontsize=11, margin=".19,.13", penwidth=1.3];
+  edge [fontname="DejaVu Sans", fontcolor="#384F65", color="#57718A", fontsize=9, arrowsize=.72];
+  draft [label="Draft task\nSupply fictional excerpts and\nwrite observable criteria", fillcolor="#E8F1FA"];
+  blind [label="Independent blind review\nSolve before seeing the answer key;\nthen compare the criteria"];
+  ready [label="Ready to score?", shape=diamond, fillcolor="#FFF2CC", color="#AF8F4B"];
+  score [label="Score the response\nRecord a result for each criterion", fillcolor="#E8F1FA"];
+  assess [label="Interpret the result", shape=diamond, fillcolor="#FFF2CC", color="#AF8F4B"];
+  pass [label="Record the pass", fillcolor="#E6F5ED", color="#669B83"];
+  fail [label="Record response failure\nKeep the valid task unchanged", fillcolor="#E6F5ED", color="#669B83"];
+  revise [label="Repair the task\nLog the defect and revise the fixture\nor criteria as a new version", fillcolor="#FAE9E6", color="#BF8179"];
+  draft -> blind -> ready;
+  ready -> score [label="Yes"];
+  ready -> revise [label="No: task defect"];
+  score -> assess;
+  assess -> pass [label="Criteria met"];
+  assess -> fail [label="Clear criterion missed"];
+  assess -> revise [label="Task defect discovered"];
+  revise -> blind [label="Review the revision again", color="#A54C44", fontcolor="#8D403A", constraint=false, minlen=2];
+  {rank=same; pass; fail; revise;}
+}

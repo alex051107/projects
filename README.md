@@ -1,30 +1,24 @@
-# Evidence-Driven Agent & Scientific ML Portfolio
+# Zhenpeng Liu | Project Portfolio
 
-Public engineering demos and research case studies in AI for Science and agent systems. The common theme is giving models clear evidence requirements, deterministic checks, durable state, and a way to stop when the evidence runs out.
+I build AI agents and scientific software that turn model outputs into artifacts people can inspect, test, and reproduce.
+
+## Research and engineering from my résumé
+
+| Project | What to look at |
+| --- | --- |
+| **Dynamics Atlas** · Scientific agent runtime | [Runtime and decision workflow](https://github.com/alex051107/dynamics-atlas-harness) · [Literature atlas and evidence flow](https://github.com/alex051107/dynamics-atlas-relaxdb/blob/main/PORTFOLIO.md). The runtime checks analysis proposals and tool outputs; the atlas organizes literature evidence into protein records. |
+| **TaskFactory** · Multi-agent evaluation | [Engine and architecture](https://github.com/alex051107/agent-taskfactory-public). A LangGraph pipeline takes an evaluation task from rule selection and scorer design through blind review, freeze, and model trials. |
+| **EvidenceOps** · Scientific evidence retrieval | [Pipeline](https://github.com/alex051107/evidenceops-public-mvp) · [Evidence console](https://alex051107.github.io/evidenceops-public-mvp/). Source identity and citations stay attached from retrieval to structured evidence and review. |
+| **CarePlan** · Controlled drafting and human review | [Public workflow harness](careplan_workflow_harness/). Synthetic orders show where eligibility rules stop processing and where a human reviewer makes the final decision. |
+| **HSP90 LiGaMD3** · Simulation and scientific ML | [Reproducible toolkit](https://github.com/alex051107/ligamd-pkoff-toolkit) · [Trajectory event harness](trajectory_event_harness/). Separate replica-level event detection and feature extraction from experimental-label prediction. |
+
+## Selected project notes
+
+- **[Legal Benchmark QA](portfolio/legal-benchmark-qa/):** Follow a fictional contract comparison through task design, blind review, scoring and repair. See how to distinguish a model mistake from a defective evaluation task.
+- **[TrpB Path Planning](portfolio/trpb-path-planning/):** A structural biology proposal comparing direct interpolation with a partially closed waypoint, with explicit conditions for revising or holding a path.
+- **[Benchmark QA Demo](portfolio/benchmark-qa-demo/):** Run an offline checker with synthetic fixtures and inspect the output.
 
 [中文导航](README.zh-CN.md)
-
-## Start here
-
-I build systems that make model outputs inspectable, from evaluation tasks to scientific evidence records. The two tracks below show the problem, the artifact, and what the evidence can support.
-
-| Track | Project | Start with |
-| --- | --- | --- |
-| AI for Science | **Dynamics Atlas** | [Case study and diagrams](https://github.com/alex051107/dynamics-atlas-relaxdb/blob/main/PORTFOLIO.md) · Evidence-linked records of reported protein states. |
-| AI for Science | **LiGaMD Toolkit** | [Repository and workflow](https://github.com/alex051107/ligamd-pkoff-toolkit) · Replica-aware analysis and optional experimental-label prediction. |
-| AI for Science | **TrpB path planning** | [Research proposal](portfolio/trpb-path-planning/) · Proposed reference, path and robustness checks; no simulations or results reported. |
-| Agent engineering | **TaskFactory** | [Public engine](https://github.com/alex051107/agent-taskfactory-public) · Offline synthetic examples for versioning, gating and evaluating tasks. |
-| Agent engineering | **EvidenceOps** | [Repository](https://github.com/alex051107/evidenceops-public-mvp) · [Static demo](https://alex051107.github.io/evidenceops-public-mvp/) · Citation-aware retrieval with an unsupported-answer route. |
-| Agent engineering | **Benchmark QA Demo** | [Runnable clean-room demo](portfolio/benchmark-qa-demo/) · A deterministic checker, written from scratch with fictional data. |
-
-## Additional implementation detail
-
-| Project | Public surface | What is implemented | Evidence boundary |
-| --- | --- | --- | --- |
-| **EvidenceOps / EvidenceUp** | [Public MVP repository](https://github.com/alex051107/evidenceops-public-mvp) | Public-source registry, parsing and chunking, citation-aware retrieval, structured extraction, risk checks, a small evaluation set, failure analysis, and a static evidence console. | Public and synthetic inputs only. The static site is not evidence of a production backend, customer use, or deployment scale. |
-| **CarePlan** | [`careplan_workflow_harness/`](careplan_workflow_harness/) | Synthetic-only intake, deterministic hard stops, SQLite-backed idempotency, a typed draft boundary, fail-closed schema validation, optimistic review state, and a pharmacist-only approval gate. | A portfolio workflow, not clinical software. It accepts no real patient data, gives no medical advice, and grants no approval authority to a model. |
-| **Dynamics Atlas** | [`scientific_evidence_harness/`](scientific_evidence_harness/) | Source identity, mapping coverage, measurement semantics, maturity state, and claim-ceiling checks for scientific evidence cards. | Synthetic fixtures demonstrate governance behavior. They do not establish biological findings, cross-system generalization, or Agent effectiveness. |
-| **HSP90 / LiGaMD experimental-pKoff** | [`trajectory_event_harness/`](trajectory_event_harness/) · [LiGaMD pKoff Toolkit](https://github.com/alex051107/ligamd-pkoff-toolkit) | Replica-aware sustained-event extraction with recapture and censoring, plus a public trajectory-featurization and experimental-pKoff toolkit. | Experimental `pKoff` is an assay-derived supervised-learning label. Neither harness claims a physical dissociation rate from simulation time or a selected final scientific model. |
 
 ## Supporting control-plane project
 

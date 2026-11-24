@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 692" role="img" aria-labelledby="t d">
+<title id="t">TrpB conformational path planning</title>
+<desc id="d">Proposed state chart: qualify references; hold incompatible comparisons; compare a direct candidate with a partially closed waypoint candidate. Pass a stable better description, retain a robust direct baseline when the waypoint fails to improve it, loop for actionable reference sensitivity, or hold unresolved evidence.</desc>
+<defs>
+ <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L8 4L0 8Z" fill="#526675"/></marker>
+ <style>
+ text{font-family:Arial,Helvetica,sans-serif;fill:#172b38}.h1{font-weight:700;font-size:29px}.label{font-weight:700;font-size:16px}.meta{font-size:13px;fill:#465963}.body{font-size:15px;fill:#344b59}.small{font-size:13px;fill:#344b59}.stage{fill:#f4f8fb;stroke:#a8bbc7;stroke-width:1.4}.pass{fill:#ebf7f1;stroke:#72a58d;stroke-width:1.4}.loop{fill:#edf3ff;stroke:#8ba2c6;stroke-width:1.4}.hold{fill:#fff6e7;stroke:#b4935c;stroke-width:1.4}.line{stroke:#526675;stroke-width:1.65;fill:none;marker-end:url(#arrow)}.dashed{stroke-dasharray:5 5}
+ </style>
+</defs>
+<rect width="1040" height="692" fill="#fff"/>
+<text x="30" y="44" class="h1">TrpB conformational path planning</text>
+<text x="30" y="68" class="meta">PROPOSAL</text>
+<path class="line" d="M450 149V181"/>
+<path class="line" d="M450 235V268"/>
+<path class="line" d="M716 208H792"/>
+<path class="line" d="M450 357V387"/>
+<path class="line" d="M450 464V492"/>
+<path class="line" d="M450 540V554H163V590"/>
+<path class="line" d="M450 554H410V590"/>
+<path class="line" d="M450 554H654V590"/>
+<path class="line" d="M654 554H898V590"/>
+<path class="line dashed" d="M654 651V672H12V118H184"/>
+<rect class="stage" x="188" y="89" width="524" height="60" rx="10"/>
+<text class="label" x="450" y="113" text-anchor="middle">1 · QUALIFY PUBLISHED REFERENCES</text>
+<text class="body" x="450" y="135" text-anchor="middle">Record construct, biochemical state, and aligned structural coverage.</text>
+<rect class="stage" x="188" y="183" width="524" height="52" rx="10"/>
+<text class="label" x="450" y="215" text-anchor="middle">Are the reference structures comparable?</text>
+<text class="small" x="720" y="199">No / unclear</text>
+<text class="small" x="463" y="253">Yes</text>
+<rect class="hold" x="797" y="174" width="211" height="70" rx="10"/>
+<text class="label" x="902" y="199" text-anchor="middle">HOLD</text>
+<text class="small" x="902" y="219" text-anchor="middle">Separate incompatible</text>
+<text class="small" x="902" y="235" text-anchor="middle">references.</text>
+<rect class="stage" x="188" y="270" width="524" height="87" rx="10"/>
+<text class="label" x="450" y="294" text-anchor="middle">2 · BUILD TWO GEOMETRY CANDIDATES</text>
+<text class="body" x="450" y="318" text-anchor="middle">Baseline: Open → Closed</text>
+<text class="body" x="450" y="339" text-anchor="middle">Waypoint: Open → Partially closed (provisional) → Closed</text>
+<rect class="stage" x="188" y="389" width="524" height="75" rx="10"/>
+<text class="label" x="450" y="414" text-anchor="middle">3 · COMPARE THE PATHS</text>
+<text class="body" x="450" y="435" text-anchor="middle">Score progress and deviation; cross-check orientation and contacts.</text>
+<text class="small" x="450" y="453" text-anchor="middle">Repeat with alternative references and held-out structures if available.</text>
+<rect class="stage" x="188" y="494" width="524" height="46" rx="10"/>
+<text class="label" x="450" y="523" text-anchor="middle">Does the waypoint improve the checks and stay robust?</text>
+<rect class="pass" x="54" y="592" width="218" height="58" rx="10"/>
+<text class="label" x="163" y="615" text-anchor="middle">PASS · Waypoint</text>
+<text class="small" x="163" y="636" text-anchor="middle">Better and robust.</text>
+<rect class="pass" x="301" y="592" width="218" height="58" rx="10"/>
+<text class="label" x="410" y="615" text-anchor="middle">PASS · Direct baseline</text>
+<text class="small" x="410" y="636" text-anchor="middle">No gain; baseline robust.</text>
+<rect class="loop" x="545" y="592" width="218" height="58" rx="10"/>
+<text class="label" x="654" y="615" text-anchor="middle">LOOP · Revise inputs</text>
+<text class="small" x="654" y="636" text-anchor="middle">A reference sensitivity is fixable.</text>
+<rect class="hold" x="789" y="592" width="218" height="58" rx="10"/>
+<text class="label" x="898" y="615" text-anchor="middle">HOLD · Report ambiguity</text>
+<text class="small" x="898" y="636" text-anchor="middle">No stable route or sparse evidence.</text>
+</svg>

@@ -1,0 +1,11 @@
+flowchart TD
+    A["1. Qualify published references<br/>Document construct, biochemical state and aligned coverage"] --> B{"Comparable references?"}
+    B -->|Yes| C["2. Build two geometry candidates<br/>Direct open to closed; open via provisional PC to closed"]
+    B -->|No or uncertain| F["HOLD: explain incompatibility or insufficient evidence"]
+    C --> D["3. Compare paths<br/>Score progress and deviation; cross-check domain orientation and contacts"]
+    D --> E{"Does the waypoint improve independent checks<br/>and survive reference changes?"}
+    E -->|Yes| G["PASS: report supported candidate geometry"]
+    E -->|No, baseline robust| H["PASS: retain direct baseline"]
+    E -->|Reference sensitivity is actionable| I["LOOP: revise reference or alignment choice"]
+    I --> A
+    E -->|Too little evidence or no stable route| F
