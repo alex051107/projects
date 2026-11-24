@@ -85,6 +85,6 @@ The repository also retains three earlier analytics prototypes:
 [`bee_forecasting/`](bee_forecasting/),
 [`water_level_forecasting/`](water_level_forecasting/), and
 [`virtual_screening/`](virtual_screening/). They are preserved for code-reading
-context and are not part of the current four-project evidence package. Their
+context and are not among the résumé projects above. Their
 roadmap language should not be interpreted as proof that every planned model,
 data source, dashboard, or end-to-end run has been completed.
