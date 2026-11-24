@@ -1,0 +1,7 @@
+[
+  {"id":"desk-01","split":"development","request":"How many copies of Moss Atlas are available?","catalog":{"Moss Atlas":2},"expected":{"status":"known","copies":2}},
+  {"id":"desk-02","split":"development","request":"How many copies of Rain Index are available?","catalog":{"Rain Index":4},"expected":{"status":"known","copies":4}},
+  {"id":"desk-03","split":"evaluation","request":"How many copies of Cloud Manual are available?","catalog":{"Cloud Manual":0},"expected":{"status":"known","copies":0}},
+  {"id":"desk-04","split":"evaluation","request":"How many copies of Fern Calendar are available?","catalog":{"Moss Atlas":2},"expected":{"status":"unknown","copies":null}},
+  {"id":"desk-05","split":"evaluation","request":"How many copies of Stone Almanac are available?","catalog":{"Stone Almanac":1},"expected":{"status":"known","copies":1}}
+]

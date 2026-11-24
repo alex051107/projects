@@ -1,0 +1,9 @@
+flowchart LR
+    A[Synthetic catalog cases] --> C{Validate fixtures}
+    C -->|Schema, answer key, or split problem| D[Reject input]
+    C -->|Valid| E[Select requested split]
+    B[Handwritten example predictions] --> F{Check prediction IDs}
+    E --> F
+    F -->|Unexpected ID| D
+    F -->|Valid IDs| G[Classify each expected case]
+    G --> H[Report counts and per-case outcomes]

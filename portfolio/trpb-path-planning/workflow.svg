@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 320" role="img" aria-labelledby="title desc">
+  <title id="title">TrpB conformational path planning</title>
+  <desc id="desc">Public reference structures feed two candidate paths. Compare both using path-coordinate and independent structural descriptors then report stable candidate geometry or ambiguity. The labels open, partially closed and closed describe candidate geometry, not observed kinetics.</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#417184"/></marker>
+    <style>
+      .card{fill:#fff;stroke:#c9dce5;stroke-width:1.4}.accent{fill:#e5f7f3;stroke:#72b7a8;stroke-width:1.4}.arr{stroke:#417184;stroke-width:2;fill:none;marker-end:url(#arr)}.alt{stroke-dasharray:5 5}.text{font:600 16px system-ui,sans-serif;fill:#173546}.small{font:14px system-ui,sans-serif;fill:#395768}.head{font:700 25px system-ui,sans-serif;fill:#122e42}
+    </style>
+  </defs>
+  <rect x="1" y="1" width="1038" height="318" rx="22" fill="#f3f9fc" stroke="#d6e6ef"/>
+  <text x="32" y="43" class="head">TrpB conformational path planning</text>
+  <text x="32" y="66" class="small">Proposed evaluation workflow · no simulations run</text>
+  <rect x="32" y="102" width="158" height="91" rx="13" class="card"/>
+  <text x="111" y="134" class="text" text-anchor="middle">Public references</text>
+  <text x="111" y="157" class="small" text-anchor="middle">Check provenance</text>
+  <text x="111" y="177" class="small" text-anchor="middle">and comparability</text>
+  <path d="M190 147H204V113H216" class="arr"/>
+  <path d="M190 147H204V180H216" class="arr"/>
+  <rect x="219" y="86" width="193" height="54" rx="12" class="card"/>
+  <text x="315" y="109" class="text" text-anchor="middle">Baseline</text>
+  <text x="315" y="128" class="small" text-anchor="middle">Geometric interpolation</text>
+  <rect x="219" y="154" width="193" height="54" rx="12" class="accent"/>
+  <text x="315" y="176" class="text" text-anchor="middle">Candidate</text>
+  <text x="315" y="195" class="small" text-anchor="middle">Provisional PC waypoint</text>
+  <path d="M412 113H428V147H442" class="arr"/>
+  <path d="M412 181H428V147" stroke="#417184" stroke-width="2" fill="none"/>
+  <rect x="446" y="102" width="219" height="91" rx="13" class="card"/>
+  <text x="555" y="134" class="text" text-anchor="middle">Compare paths</text>
+  <text x="555" y="157" class="small" text-anchor="middle">Progress and deviation</text>
+  <text x="555" y="177" class="small" text-anchor="middle">plus independent checks</text>
+  <path d="M665 147H699" class="arr"/>
+  <rect x="703" y="102" width="304" height="91" rx="13" class="card"/>
+  <text x="855" y="134" class="text" text-anchor="middle">Report what holds up</text>
+  <text x="855" y="157" class="small" text-anchor="middle">Candidate geometry if stable;</text>
+  <text x="855" y="177" class="small" text-anchor="middle">explicit ambiguity otherwise</text>
+  <line x1="32" y1="226" x2="1008" y2="226" stroke="#c9dce5"/>
+  <text x="32" y="264" class="text">Schematic states</text>
+  <text x="208" y="264" class="text">O · Open</text>
+  <path d="M291 259H349" class="arr alt"/>
+  <text x="363" y="264" class="text">PC · Partially closed</text>
+  <path d="M528 259H586" class="arr alt"/>
+  <text x="602" y="264" class="text">C · Closed</text>
+  <text x="32" y="293" class="small">The waypoint is a hypothesis, not an observed intermediate or a kinetic claim.</text>
+</svg>

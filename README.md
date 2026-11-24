@@ -1,14 +1,23 @@
 # Evidence-Driven Agent & Scientific ML Portfolio
 
-Public, runnable engineering artifacts from four current project lines:
-EvidenceOps, CarePlan, Dynamics Atlas, and HSP90/LiGaMD. The common theme is
-not autonomous model behavior. It is the control layer around a model:
-evidence contracts, deterministic validation, durable state, human authority,
-failure recovery, and explicit limits on what a result may claim.
+Public engineering demos and research case studies in AI for Science and agent systems. The common theme is giving models clear evidence requirements, deterministic checks, durable state, and a way to stop when the evidence runs out.
 
 [中文导航](README.zh-CN.md)
 
-## Featured projects
+## Start here
+
+I build systems that make model outputs inspectable, from evaluation tasks to scientific evidence records. The two tracks below show the problem, the artifact, and what the evidence can support.
+
+| Track | Project | Start with |
+| --- | --- | --- |
+| AI for Science | **Dynamics Atlas** | [Case study and diagrams](https://github.com/alex051107/dynamics-atlas-relaxdb/blob/main/PORTFOLIO.md) · Evidence-linked records of reported protein states. |
+| AI for Science | **LiGaMD Toolkit** | [Repository and workflow](https://github.com/alex051107/ligamd-pkoff-toolkit) · Replica-aware analysis and optional experimental-label prediction. |
+| AI for Science | **TrpB path planning** | [Research proposal](portfolio/trpb-path-planning/) · Proposed reference, path and robustness checks; no simulations or results reported. |
+| Agent engineering | **TaskFactory** | [Public engine](https://github.com/alex051107/agent-taskfactory-public) · Offline synthetic examples for versioning, gating and evaluating tasks. |
+| Agent engineering | **EvidenceOps** | [Repository](https://github.com/alex051107/evidenceops-public-mvp) · [Static demo](https://alex051107.github.io/evidenceops-public-mvp/) · Citation-aware retrieval with an unsupported-answer route. |
+| Agent engineering | **Benchmark QA Demo** | [Runnable clean-room demo](portfolio/benchmark-qa-demo/) · A deterministic checker, written from scratch with fictional data. |
+
+## Additional implementation detail
 
 | Project | Public surface | What is implemented | Evidence boundary |
 | --- | --- | --- | --- |

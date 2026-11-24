@@ -1,0 +1,10 @@
+flowchart LR
+    A["Published structural references"] --> B["Comparability and provenance"]
+    B --> C["Baseline: geometric interpolation"]
+    B --> D["Candidate: provisional PC waypoint"]
+    C --> E["Score path progress and off-path deviation"]
+    D --> E
+    E --> F["Cross-check using independent descriptors"]
+    F --> G{"Stable across reference choices?"}
+    G -->|Yes| H["Report candidate geometry"]
+    G -->|No| I["Report ambiguity"]
