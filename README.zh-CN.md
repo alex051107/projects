@@ -1,20 +1,24 @@
-# 证据驱动的 Agent 与 Scientific ML 项目集
+# 刘振鹏 | 项目作品集
 
-这个公开仓库集中展示目前四条核心项目线：EvidenceOps、CarePlan、
-Dynamics Atlas，以及 HSP90/LiGaMD。它们共同强调的不是“让模型自主做完
-一切”，而是模型周围的工程控制层：证据契约、确定性校验、持久状态、人类
-决策权、失败恢复，以及可审计的 claim ceiling。
+我做 AI Agent 和科学软件，把模型输出变成可以检查、测试和复现的结果。
 
 [English README](README.md)
 
-## 四个核心项目
+## 简历中的五个项目
 
-| 项目 | 公开入口 | 已实现内容 | 不能外推成什么 |
-| --- | --- | --- | --- |
-| **EvidenceOps / EvidenceUp** | [Public MVP](https://github.com/alex051107/evidenceops-public-mvp) | 公开来源登记、解析与切块、带 citation 的检索、小 schema 抽取、风险检查、小型评测集、失败分析和静态 Evidence Console。 | 静态网页不等于动态后端已生产部署，也不证明真实客户使用或生产规模。 |
-| **CarePlan** | [`careplan_workflow_harness/`](careplan_workflow_harness/) | 仅 synthetic 输入、确定性 hard stop、SQLite 幂等、严格 draft schema、fail-closed 校验、乐观并发复核，以及只有 pharmacist 角色才能批准的人工闸门。 | 不是临床系统，不处理真实患者数据，不提供医疗建议，模型不能批准计划。 |
-| **Dynamics Atlas** | [`scientific_evidence_harness/`](scientific_evidence_harness/) | source identity、mapping coverage、measurement semantics、maturity state 和 claim ceiling 校验。 | synthetic fixture 只证明治理逻辑可运行，不证明生物学结论、跨系统泛化或 Agent effectiveness。 |
-| **HSP90 / LiGaMD experimental-pKoff** | [`trajectory_event_harness/`](trajectory_event_harness/) · [公开 toolkit](https://github.com/alex051107/ligamd-pkoff-toolkit) | replica-aware 的持续事件、recapture、right censoring 与 provenance；另有公开轨迹特征和 experimental-pKoff 工具。 | experimental `pKoff` 是实验 assay 标签，不是由模拟时间直接得到的 physical `koff`；当前结果也不是已选定的最终科学模型。 |
+| 项目 | 从哪里看起 |
+| --- | --- |
+| **Dynamics Atlas** · 科学 Agent | [运行时与决策流程](https://github.com/alex051107/dynamics-atlas-harness)校验分析提案和工具输出；[文献图谱与证据流程](https://github.com/alex051107/dynamics-atlas-relaxdb/blob/main/PORTFOLIO.md)把文献证据整理为可追溯的蛋白质记录。[本地校验示例](scientific_evidence_harness/)演示证据不足时如何限制结论。 |
+| **TaskFactory** · 多 Agent 评测 | [引擎与架构](https://github.com/alex051107/agent-taskfactory-public)。用 LangGraph 串联评测规则、评分器设计、盲审、任务冻结和模型试跑。 |
+| **EvidenceOps** · 科学证据检索 | [公开管线](https://github.com/alex051107/evidenceops-public-mvp) · [证据台](https://alex051107.github.io/evidenceops-public-mvp/)。从检索到结构化提取和复核，保留来源与引文。 |
+| **CarePlan** · 受控起草与人工复核 | [公开工作流](careplan_workflow_harness/)。用模拟输入展示资格规则在哪里拦截，以及哪些决策由人负责。 |
+| **HSP90 LiGaMD3** · 分子模拟与科学机器学习 | [可复现工具包](https://github.com/alex051107/ligamd-pkoff-toolkit) · [轨迹事件识别](trajectory_event_harness/)。把重复轨迹的事件检测和特征提取，与实验标签的预测分开。这里的 `pKoff` 来自实验标签，不是由模拟时间直接估算的物理解离速率。 |
+
+## 项目案例
+
+- **[Legal Benchmark QA](portfolio/legal-benchmark-qa/)**：用一份虚构合同的两个版本演示盲审、评分和返修，区分模型答错与评测题缺少材料。
+- **[TrpB Path Planning](portfolio/trpb-path-planning/)**：比较直接插值与经过部分闭合构象的两条候选路径，说明何时修改或暂停。
+- **[Benchmark QA Demo](portfolio/benchmark-qa-demo/)**：用合成样例运行离线检查，查看输出。
 
 ## 配套控制层
 
@@ -41,5 +45,5 @@ python -m unittest discover -s trajectory_event_harness/tests -v
 身份对照。公开示例只使用 synthetic fixture 或明确可公开的来源。
 
 仓库里保留的 bee forecasting、water-level forecasting 和 virtual screening
-属于较早期 prototype，不是当前四项目证据包。其 roadmap 不应被当成所有模型、
+属于较早期原型，不在上面的简历项目列表中。其路线图不应被当成所有模型、
 数据源、dashboard 或端到端运行都已完成的证明。
