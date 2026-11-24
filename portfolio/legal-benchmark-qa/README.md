@@ -2,9 +2,11 @@
 
 A quality-control case study using a fictional contract comparison. It shows why a benchmark must validate the task before interpreting a score.
 
-![Illustrative workflow from drafting and blind review through scoring and task repair](workflow.svg)
+![Legal Benchmark QA graphical abstract: two fictional contract versions, blind review criteria, and the distinction between wrong answers and missing source material](graphical-abstract.webp)
 
-Editable source: [workflow.dot](workflow.dot). Regenerate with `dot -Tsvg workflow.dot -o workflow.svg`.
+*Figure 1. Compare the clause, check that the task can be answered from the supplied sources, then attribute the failure before recording a score.*
+
+[Detailed review workflow](workflow.svg) · [Editable source](workflow.dot)
 
 ## Fictional task: What changed in the weekly reporting clause?
 
@@ -28,9 +30,3 @@ Editable source: [workflow.dot](workflow.dot). Regenerate with `dot -Tsvg workfl
 
 The key distinction: a missed criterion is evidence about the response only when the task gives the respondent a fair way to meet it.
 
-<details>
-<summary>One-minute workflow map</summary>
-
-![Legal benchmark QA overview: main review path plus two routes to revision](workflow-overview.jpg)
-
-</details>
